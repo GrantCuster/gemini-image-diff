@@ -22,6 +22,7 @@ function App() {
   const [resultImage] = useAtom(ResultImageAtom);
   usePasteImage();
   useDropImage();
+  imageHelper();
   const resetDiff = useResetDiff();
 
   useLayoutEffect(() => {
