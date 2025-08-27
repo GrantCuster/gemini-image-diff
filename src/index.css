@@ -5,8 +5,8 @@
 @font-face {
   font-family: "DepartureMono";
   src:
-    url("/fonts/DepartureMono-Regular.woff2") format("woff2"),
-    url("/fonts/DepartureMono-Regular.woff") format("woff");
+    url("https://storage.googleapis.com/build-assets-temp/DepartureMono-Regular.woff2") format("woff2"),
+    url("https://storage.googleapis.com/build-assets-temp/DepartureMono-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
