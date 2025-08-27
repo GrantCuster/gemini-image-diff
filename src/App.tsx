@@ -302,6 +302,7 @@ function Source() {
         </div>
         <img
           src={sourceImage}
+          crossOrigin="anonymous"
           alt={
             imageSize
               ? `Source (${imageSize.width}x${imageSize.height})`
@@ -429,6 +430,7 @@ function Result() {
           GENERATED
         </div>
         <img
+          crossOrigin="anonymous"
           src={resultImage || sourceImage}
           alt={
             imageSize
