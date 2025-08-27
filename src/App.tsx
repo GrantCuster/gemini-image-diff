@@ -22,7 +22,6 @@ function App() {
   const [resultImage] = useAtom(ResultImageAtom);
   usePasteImage();
   useDropImage();
-  useImageHelper();
   const resetDiff = useResetDiff();
 
   useLayoutEffect(() => {
@@ -111,46 +110,6 @@ function App() {
 }
 
 export default App;
-
-function useImageHelper() {
-  const [, setSourceImage] = useAtom(SourceImageAtom);
-  const [, setResultImage] = useAtom(ResultImageAtom);
-
-  useEffect(() => {
-    async function main() {
-      {
-        const src =
-          "https://storage.googleapis.com/build-assets-temp/octopus.jpg";
-        const fetchedSource = await fetch(src);
-        const blob = await fetchedSource.blob();
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const result = e.target?.result;
-          if (typeof result === "string") {
-            setSourceImage(result);
-            setResultImage(null);
-          }
-        };
-        reader.readAsDataURL(blob);
-      }
-      {
-        const result =
-          "https://storage.googleapis.com/build-assets-temp/top-hat-example.png";
-        const fetchedResult = await fetch(result);
-        const blob = await fetchedResult.blob();
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const res = e.target?.result;
-          if (typeof res === "string") {
-            setResultImage(res);
-          }
-        };
-        reader.readAsDataURL(blob);
-      }
-    }
-    main();
-  }, []);
-}
 
 function Controls() {
   const [resultPrompt] = useAtom(ResultPromptAtom);

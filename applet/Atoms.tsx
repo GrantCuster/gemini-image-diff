@@ -1,10 +1,11 @@
 import { atom } from "jotai";
 import { ModeType, ToastItem } from "./Types";
+import { exampleResultImage, exampleSourceImage } from "./InlinedImages";
 
-export const SourceImageAtom = atom<string>("https://storage.googleapis.com/build-assets-temp/octopus.jpg");
+export const SourceImageAtom = atom<string>(exampleSourceImage)
 export const CurrentPromptAtom = atom<string>("");
 export const ResultPromptAtom = atom<string | null>("Put a top hat on it");
-export const ResultImageAtom = atom<string | null>("https://storage.googleapis.com/build-assets-temp/top-hat-example.png");
+export const ResultImageAtom = atom<string | null>(exampleResultImage);
 export const ToastItemsAtom = atom<ToastItem[]>([]);
 export const ModeAtom = atom<ModeType>("diff");
 export const OpacityAtom = atom<number>(0.5);
