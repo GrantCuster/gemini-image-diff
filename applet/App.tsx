@@ -195,10 +195,13 @@ function Prompt() {
     setIsGenerating(false);
   }
 
+  const textElRef = useRef<HTMLTextAreaElement | null>(null);
+
   return (
     <div className="w-full shrink-0 gap-[1ch] py-[0.5lh] px-[1ch] flex items-center">
       <TextareaAutosize
         value={prompt}
+        ref={textElRef}
         className="w-full grow px-[1ch] py-[0.25lh] focus:outline-none bg-neutral-800"
         onChange={(e) => setPrompt(e.target.value)}
         autoFocus
@@ -214,8 +217,15 @@ function Prompt() {
         }}
       />
       <button
-        className={`px-[2ch] py-[0.25lh] bg-neutral-800 hover:bg-neutral-700 ${isGenerating ? "cursor-loading opacity-50" : ""}`}
-        onClick={handleGenerate}
+        className={`px-[2ch] py-[0.25lh] bg-neutral-800 hover:bg-neutral-700 ${isGenerating ? "cursor-loading opacity-50" : ""} ${prompt.trim().length === 0 || !sourceImage ? "opacity-50 cursor-not-allowed" : ""}`}
+        disabled={isGenerating || prompt.trim().length === 0 || !sourceImage}
+        onClick={() => {
+          if (sourceImage && prompt.trim()) {
+            handleGenerate();
+          } else {
+            textElRef.current?.focus();
+          }
+        }}
       >
         Generate
       </button>
