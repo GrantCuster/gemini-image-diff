@@ -1,5 +1,7 @@
 import { createUserContent, Modality } from "@google/genai";
-import { ai } from "./App";
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY})
 
 export async function generateImage({
   prompt,
