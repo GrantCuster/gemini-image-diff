@@ -22,7 +22,7 @@ function App() {
   const [resultImage] = useAtom(ResultImageAtom);
   usePasteImage();
   useDropImage();
-  imageHelper();
+  useImageHelper();
   const resetDiff = useResetDiff();
 
   useLayoutEffect(() => {
@@ -112,7 +112,7 @@ function App() {
 
 export default App;
 
-function imageHelper() {
+function useImageHelper() {
   const [, setSourceImage] = useAtom(SourceImageAtom);
   const [, setResultImage] = useAtom(ResultImageAtom);
 
