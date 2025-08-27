@@ -217,8 +217,7 @@ function Prompt() {
         }}
       />
       <button
-        className={`px-[2ch] py-[0.25lh] bg-neutral-800 hover:bg-neutral-700 ${isGenerating ? "cursor-loading opacity-50" : ""} ${prompt.trim().length === 0 || !sourceImage ? "opacity-50 cursor-not-allowed" : ""}`}
-        disabled={isGenerating || prompt.trim().length === 0 || !sourceImage}
+        className={`px-[2ch] py-[0.25lh] bg-neutral-800 hover:bg-neutral-700 ${isGenerating ? "cursor-loading opacity-50" : ""} ${prompt.trim().length === 0 || !sourceImage ? "opacity-50" : ""}`}
         onClick={() => {
           if (sourceImage && prompt.trim()) {
             handleGenerate();
